@@ -59,7 +59,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
      *
      * @param messageBody FCM message body received.
      */
-    private void sendNotification(String title, String messageBody, Map<String, Object> data) {
+    private void sendNotification(String title, String messageBody, Map<String, String> data) {
         Intent intent = new Intent(this, FCMPluginActivity.class);
         Intent deleteIntent = new Intent(this, FCMPluginDismissActivity.class);
 
