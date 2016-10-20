@@ -60,6 +60,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
      * @param messageBody FCM message body received.
      */
     private void sendNotification(String title, String messageBody, Map<String, String> data) {
+        Log.d(TAG, "\tsendNotification: " + data.toString());
         Intent intent = new Intent(this, FCMPluginActivity.class);
         Intent deleteIntent = new Intent(this, FCMPluginDismissActivity.class);
 
@@ -77,7 +78,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 PendingIntent.FLAG_ONE_SHOT);
 
         PendingIntent pendingDismissIntent = PendingIntent.getActivity(this, 0 /* Request code */, deleteIntent,
-                PendingIntent.FLAG_ONE_SHOT);
+                PendingIntent.FLAG_CANCEL_CURRENT);
 
         Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
