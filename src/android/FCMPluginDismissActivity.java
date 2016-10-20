@@ -26,7 +26,7 @@ public class FCMPluginDismissActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		Log.d(TAG, "==> FCMPluginActivity onCreate");
+		Log.d(TAG, "==> FCMPluginDismissActivity onCreate");
 		
 		Map<String, Object> data = new HashMap<String, Object>();
         if (getIntent().getExtras() != null) {
