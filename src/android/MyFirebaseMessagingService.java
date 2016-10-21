@@ -73,7 +73,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 PendingIntent.FLAG_ONE_SHOT);
 
         Intent broadcastIntent = new Intent(this , FCMPluginDismissBroadcastReceiver.class);
-        PendingIntent pendingBroadcast  = PendingIntent.getBroadcast(this, 0, broadcastIntent, PendingIntent.FLAG_CANCEL_CURRENT);  
+        PendingIntent pendingBroadcast  = PendingIntent.getBroadcast(this, 0, broadcastIntent, 0);  
 
         Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
