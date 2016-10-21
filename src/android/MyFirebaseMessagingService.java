@@ -80,7 +80,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setSmallIcon(getApplicationInfo().icon)
                 .setContentTitle(title)
                 .setContentText(messageBody)
-                .setAutoCancel(true)
+                .setAutoCancel(false)
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent)
                 .setDeleteIntent(pendingBroadcast);
