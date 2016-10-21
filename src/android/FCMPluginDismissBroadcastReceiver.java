@@ -12,7 +12,7 @@ public class FCMPluginDismissBroadcastReceiver extends BroadcastReceiver {
         public void onReceive(Context context, Intent intent) {
                 Log.d(TAG, "==> FCMPluginDismissBroadcastReceiver onReceive");
 
-                Map<String, Object> data = new HashMap<String, Object>();
+                /*Map<String, Object> data = new HashMap<String, Object>();
                 if (intent.getExtras() != null) {
 	            Log.d(TAG, "==> USER TAPPED NOTFICATION");
 		    for (String key : intent.getExtras().keySet()) {
@@ -22,6 +22,6 @@ public class FCMPluginDismissBroadcastReceiver extends BroadcastReceiver {
                     }
                 }
 
-                FCMPlugin.sendPushPayload( data );
+                FCMPlugin.sendPushPayload( data );*/
         }
 }
