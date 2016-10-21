@@ -15,8 +15,8 @@ public class FCMPluginDismissBroadcastReceiver extends BroadcastReceiver {
                 Map<String, Object> data = new HashMap<String, Object>();
                 if (intent.getExtras() != null) {
 	            Log.d(TAG, "==> USER TAPPED NOTFICATION");
-		    for (String key : getIntent().getExtras().keySet()) {
-                        String value = getIntent().getExtras().getString(key);
+		    for (String key : intent.getExtras().keySet()) {
+                        String value = intent.getExtras().getString(key);
                         Log.d(TAG, "\tKey: " + key + " Value: " + value);
 		        data.put(key, value);
                     }
