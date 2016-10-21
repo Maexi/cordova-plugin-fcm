@@ -50,6 +50,7 @@
 		<category android:name="android.intent.category.DEFAULT" />
 	    </intent-filter>			
 	  </activity>
+	  <receiver android:name=".FCMPluginDismissBroadcastReceiver" android:enabled="true" android:exported="false" ></receiver>
 	  <service android:name="com.gae.scaffolder.plugin.MyFirebaseMessagingService">
 	    <intent-filter>
 		<action android:name="com.google.firebase.MESSAGING_EVENT"/>
@@ -75,7 +76,7 @@
 	<source-file src="src/android/MyFirebaseInstanceIDService.java" target-dir="src/com/gae/scaffolder/plugin" />
 	<source-file src="src/android/FCMPluginActivity.java" target-dir="src/com/gae/scaffolder/plugin" />
 	<source-file src="src/android/FCMPluginDismissBroadcastReceiver.java" target-dir="src/com/gae/scaffolder/plugin" />
-	
+
     </platform>
 	
     <!-- IOS CONFIGURATION -->
