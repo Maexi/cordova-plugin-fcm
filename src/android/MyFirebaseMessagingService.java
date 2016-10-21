@@ -49,7 +49,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }
 		
 		Log.d(TAG, "\tNotification Data: " + data.toString());
-        FCMPlugin.sendPushPayload( data );
+
+        //FCMPlugin.sendPushPayload( data );
         sendNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody(), remoteMessage.getData());
     }
     // [END receive_message]
@@ -77,8 +78,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
                 PendingIntent.FLAG_ONE_SHOT);
 
-        PendingIntent pendingDismissIntent = PendingIntent.getActivity(this, 0 /* Request code */, deleteIntent,
-                PendingIntent.FLAG_CANCEL_CURRENT);
+        Intent broadcastIntent = new Intent(this , FCMPluginDismissBroadcastReceiver.class);
+        PendingIntent pendingBroadcast  = PendingIntent.getBroadcast(this, 0, broadcastIntent, PendingIntent.FLAG_CANCEL_CURRENT);  
 
         Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
@@ -88,7 +89,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent)
-                .setDeleteIntent(pendingDismissIntent);
+                .setDeleteIntent(pendingBroadcast);
 
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
