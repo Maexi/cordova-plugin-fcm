@@ -63,16 +63,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private void sendNotification(String title, String messageBody, Map<String, String> data) {
         Log.d(TAG, "\tsendNotification: " + data.toString());
         Intent intent = new Intent(this, FCMPluginActivity.class);
-        Intent deleteIntent = new Intent(this, FCMPluginDismissActivity.class);
 
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		for (String key : data.keySet()) {
 			intent.putExtra(key, data.get(key).toString());
-		}
-
-        deleteIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		for (String key : data.keySet()) {
-			deleteIntent.putExtra(key, data.get(key).toString());
 		}
 
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
